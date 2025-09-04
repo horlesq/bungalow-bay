@@ -12,14 +12,6 @@ export default function Navigation() {
                 <ul className="flex gap-8 lg:gap-16 items-center">
                     <li>
                         <Link
-                            href="/bungalows"
-                            className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
-                        >
-                            Bungalows
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
                             href="/about"
                             className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                         >
@@ -28,10 +20,18 @@ export default function Navigation() {
                     </li>
                     <li>
                         <Link
+                            href="/bungalows"
+                            className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                        >
+                            Bungalows
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
                             href="/account"
                             className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                         >
-                            <span className="hidden lg:inline">Guest area</span>
+                            <span className="hidden lg:inline">Guest</span>
                             <span className="lg:hidden">Account</span>
                         </Link>
                     </li>
@@ -71,15 +71,6 @@ export default function Navigation() {
                     <ul className="flex flex-col gap-8 items-center text-2xl">
                         <li>
                             <Link
-                                href="/bungalows"
-                                className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Bungalows
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
                                 href="/about"
                                 className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
@@ -89,11 +80,20 @@ export default function Navigation() {
                         </li>
                         <li>
                             <Link
+                                href="/bungalows"
+                                className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                Bungalows
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 href="/account"
                                 className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Guest area
+                                Guest
                             </Link>
                         </li>
                     </ul>

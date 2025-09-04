@@ -17,9 +17,9 @@ export default function Page() {
                             Where golden sands and turquoise waters meet the
                             comfort of modern living. Nestled along a serene
                             tropical shoreline, Bungalow Bay is your paradise
-                            away from home. But it's not just about the luxury
-                            bungalowsâ€"it's about the experience of slowing
-                            down, soaking in the sun, and enjoying life's simple
+                            away from home. But it&apos;s not just about the luxury
+                            bungalows—it&apos;s about the experience of slowing down,
+                            soaking in the sun, and enjoying life&apos;s simple
                             pleasures.
                         </p>
                         <p>
@@ -31,32 +31,49 @@ export default function Page() {
                             fire pit.
                         </p>
                         <p>
-                            This is where unforgettable moments are madeâ€"by
-                            the sea, under the stars, and with the people who
-                            matter most. It's a place to relax, recharge, and
-                            embrace the beauty of island living.
+                            This is where unforgettable moments are made—by the
+                            sea, under the stars, and with the people who matter
+                            most. It&apos;s a place to relax, recharge, and embrace
+                            the beauty of island living.
                         </p>
                     </div>
                 </div>
 
                 <div className="lg:col-span-2 order-2">
-                    <Image
-                        src={image1}
-                        alt="Couple enjoying a sunset in front of their bungalow"
-                        className="w-full h-auto"
-                        placeholder="blur"
-                        quality={80}
-                    />
+                    <div className="relative rounded-xl shadow-2xl">
+                        <div className="overflow-hidden rounded-l">
+                            <Image
+                                src={image1}
+                                alt="Couple enjoying a sunset in front of their bungalow"
+                                className="w-full h-auto"
+                                placeholder="blur"
+                                quality={80}
+                            />
+                        </div>
+                        {/* Decorative corner elements */}
+                        <div className="absolute -top-2 -left-2 w-6 h-6 border-t-4 border-l-4 border-accent-300 rounded-tl-lg"></div>
+                        <div className="absolute -top-2 -right-2 w-6 h-6 border-t-4 border-r-4 border-accent-300 rounded-tr-lg"></div>
+                        <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-4 border-l-4 border-accent-300 rounded-bl-lg"></div>
+                        <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-4 border-r-4 border-accent-300 rounded-br-lg"></div>
+                    </div>
                 </div>
 
                 <div className="lg:col-span-2 order-4 lg:order-3">
-                    <Image
-                        src={image2}
-                        alt="Family that manages Bungalow Bay"
-                        className="w-full h-auto"
-                        placeholder="blur"
-                        quality={80}
-                    />
+                    <div className="relative rounded-xl shadow-2xl">
+                        <div className="rounded-lg overflow-hidden shadow-lg">
+                            <Image
+                                src={image2}
+                                alt="Family that manages Bungalow Bay"
+                                className="w-full h-auto"
+                                placeholder="blur"
+                                quality={80}
+                            />
+                        </div>
+                        <div className="absolute -top-2 -left-2 w-6 h-6 border-t-4 border-l-4 border-accent-300 rounded-tl-lg"></div>
+                        <div className="absolute -top-2 -right-2 w-6 h-6 border-t-4 border-r-4 border-accent-300 rounded-tr-lg"></div>
+                        <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b-4 border-l-4 border-accent-300 rounded-bl-lg"></div>
+                        <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-4 border-r-4 border-accent-300 rounded-br-lg"></div>
+                    </div>
                 </div>
 
                 <div className="lg:col-span-3 order-3 lg:order-4 mt-16">
@@ -74,13 +91,13 @@ export default function Page() {
                             haven.
                         </p>
                         <p>
-                            Over the years, we've preserved the charm of
+                            Over the years, we&apos;ve preserved the charm of
                             Bungalow Bay, blending the timeless beauty of the
                             ocean with the personal touch only a family business
-                            can offer. Here, you're not just a guestâ€"you're
-                            part of our extended family. Join us soon at
-                            Bungalow Bay, where tradition meets tropical
-                            paradise, and every stay feels like coming home.
+                            can offer. Here, you&apos;re not just a guest—you&apos;re part
+                            of our extended family. Join us soon at Bungalow
+                            Bay, where tradition meets tropical paradise, and
+                            every stay feels like coming home.
                         </p>
 
                         <div className="pt-4">
