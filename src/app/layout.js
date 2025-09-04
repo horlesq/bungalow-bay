@@ -1,7 +1,4 @@
 import "./globals.css";
-import Logo from "../components/Logo";
-import Navigation from "../components/Navigation";
-
 import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
 
@@ -27,10 +24,8 @@ export default function RootLayout({ children }) {
                 className={`${poppins.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
             >
                 <Header />
-                <div className="flex-1 px-8 py-12 grid">
-                    <main className="max-w-7xl mx-auto bg-red-50">
-                        {children}
-                    </main>
+                <div className="flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 grid">
+                    <main className="max-w-7xl mx-auto w-full">{children}</main>
                 </div>
             </body>
         </html>
