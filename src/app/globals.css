@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Hide scrollbar for all browsers */
+html,
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 @theme {
     /* Primary Colors (Sand & Warmth) */
     --color-primary-50: #fdf5e6;

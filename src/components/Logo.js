@@ -7,10 +7,10 @@ export default function Logo() {
         <Link href="/" className="flex items-center gap-2 sm:gap-4 z-10">
             <Image
                 src={logo}
-                height="60"
-                width="60"
-                className="sm:h-[80px] sm:w-[80px] lg:h-[100px] lg:w-[100px]"
-                alt="Bungalow Bay"
+                height="70"
+                quality={100}
+                width="70"
+                alt="Bungalow Baylogo"
             />
             <span className="text-lg sm:text-xl lg:text-2xl font-black text-primary-200">
                 Bungalow Bay
