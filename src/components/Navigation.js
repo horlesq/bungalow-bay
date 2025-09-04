@@ -7,7 +7,7 @@ export default function Navigation() {
                 <li>
                     <Link
                         href="/bungalows"
-                        className="hover:text-accent-400 transition-colors"
+                        className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                     >
                         Bungalows
                     </Link>
@@ -15,7 +15,7 @@ export default function Navigation() {
                 <li>
                     <Link
                         href="/about"
-                        className="hover:text-accent-400 transition-colors"
+                        className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                     >
                         About
                     </Link>
@@ -23,7 +23,7 @@ export default function Navigation() {
                 <li>
                     <Link
                         href="/account"
-                        className="hover:text-accent-400 transition-colors"
+                        className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
                     >
                         Guest area
                     </Link>
