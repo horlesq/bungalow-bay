@@ -24,19 +24,20 @@ body::-webkit-scrollbar {
     --color-primary-800: #4b3804;
     --color-primary-900: #292002;
     --color-primary-950: #1a1302;
+    --color-primary-990: #120d01;
 
     /* Accent Colors (Ocean Blues) */
-    --color-accent-50: #e0ffff;
-    --color-accent-100: #b0e0e6;
-    --color-accent-200: #87ceeb;
-    --color-accent-300: #4682b4;
-    --color-accent-400: #4169e1;
-    --color-accent-500: #008080;
-    --color-accent-600: #006b6b;
-    --color-accent-700: #004d4d;
-    --color-accent-800: #003333;
-    --color-accent-900: #001a1a;
-    --color-accent-950: #000d0d;
+    --color-accent-50: #e0f7fa;
+    --color-accent-100: #b3ebf2;
+    --color-accent-200: #80deea;
+    --color-accent-300: #4dd0e1;
+    --color-accent-400: #26c6da;
+    --color-accent-500: #00acc1;
+    --color-accent-600: #00838f;
+    --color-accent-700: #006064;
+    --color-accent-800: #004d40;
+    --color-accent-900: #002f32;
+    --color-accent-950: #00191a;
 }
 
 @layer components {

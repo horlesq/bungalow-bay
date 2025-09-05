@@ -2,12 +2,21 @@ import { User } from "lucide-react";
 import Image from "next/image";
 
 function BungalowCard({ bungalow }) {
-    const { id, name, maxCapacity, regularPrice, discount, image } = bungalow;
+    const {
+        id,
+        name,
+        max_capacity: maxCapacity,
+        price,
+        discount,
+        image,
+    } = bungalow;
 
     return (
         <div className="flex border-primary-800 border">
             <Image
                 src={image}
+                width={300}
+                height={200}
                 alt={`Bungalow ${name}`}
                 className="flex-1 border-r border-primary-800"
             />
@@ -31,15 +40,15 @@ function BungalowCard({ bungalow }) {
                         {discount > 0 ? (
                             <>
                                 <span className="text-3xl font-[350]">
-                                    ${regularPrice - discount}
+                                    ${price - discount}
                                 </span>
                                 <span className="line-through font-semibold text-primary-600">
-                                    ${regularPrice}
+                                    ${price}
                                 </span>
                             </>
                         ) : (
                             <span className="text-3xl font-[350]">
-                                ${regularPrice}
+                                ${price}
                             </span>
                         )}
                         <span className="text-primary-200">/ night</span>

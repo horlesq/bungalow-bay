@@ -3,6 +3,10 @@ import Image from "next/image";
 import image1 from "../../../public/about-1.png";
 import image2 from "../../../public/about-2.png";
 
+export const metadata = {
+  title: "About Us",
+};
+
 export default function Page() {
     return (
         <div className="max-w-7xl mx-auto">

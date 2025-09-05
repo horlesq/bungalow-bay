@@ -1,8 +1,17 @@
 import BungalowCard from "@/components/BungalowCard";
+import BungalowList from "@/components/BungalowList";
+import Spinner from "@/components/Spinner";
+import { Suspense } from "react";
+
+export const metadata = {
+    title: "Bungalows",
+};
 
 export default function Page() {
     // CHANGE
     const bungalows = [];
+
+    const filter = "all";
 
     return (
         <div>
@@ -25,6 +34,10 @@ export default function Page() {
                     ))}
                 </div>
             )}
+
+            <Suspense fallback={<Spinner />} key={filter}>
+                <BungalowList filter={filter} />
+            </Suspense>
         </div>
     );
 }

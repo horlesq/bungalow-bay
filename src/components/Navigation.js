@@ -63,7 +63,7 @@ export default function Navigation() {
 
             {/* Mobile Navigation */}
             <nav
-                className={`md:hidden fixed top-0 left-0 w-full h-screen bg-primary-950/95 backdrop-blur-md z-40 transition-transform duration-300 ${
+                className={`md:hidden fixed top-0 left-0 w-full h-screen bg-primary-990/95 backdrop-blur-md z-40 transition-transform duration-300 ${
                     isMenuOpen ? "translate-x-0" : "translate-x-full"
                 }`}
             >
