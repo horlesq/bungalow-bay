@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import image1 from "../../../public/about-1.png";
 import image2 from "../../../public/about-2.png";
+import Link from "next/link";
 
 export const metadata = {
   title: "About Us",
@@ -9,7 +10,7 @@ export const metadata = {
 
 export default function Page() {
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto pb-10 sm:pb-16 lg:pb-24">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 xl:gap-24 text-lg items-center">
                 <div className="lg:col-span-3 order-1">
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8 lg:mb-10 text-accent-200 font-semibold leading-tight">
@@ -105,12 +106,12 @@ export default function Page() {
                         </p>
 
                         <div className="pt-4">
-                            <a
+                            <Link
                                 href="/bungalows"
                                 className="group inline-flex items-center gap-3 sm:gap-4 bg-accent-300/90 backdrop-blur-md px-8 sm:px-10 lg:px-12 py-4 sm:py-5 lg:py-6 text-primary-900 text-lg sm:text-xl lg:text-2xl font-semibold rounded-full shadow-xl hover:from-accent-400/95 hover:to-accent-300/95 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-out border border-accent-200/40"
                             >
                                 <span>Explore our beach bungalows</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

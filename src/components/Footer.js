@@ -72,7 +72,7 @@ function Footer() {
                                 rel="noopener noreferrer"
                                 className="text-accent-300 hover:text-accent-200 focus:text-accent-200 font-medium transition-colors underline decoration-dotted underline-offset-2"
                             >
-                                Horlescu
+                                Horly
                             </a>
                         </p>
                         <div className="text-xs sm:text-sm order-1 sm:order-2">

@@ -10,7 +10,7 @@ export default function Page({ searchParams }) {
     const filter = searchParams?.capacity ?? "all";
 
     return (
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto  pb-10 sm:pb-16 lg:pb-24">
             <div className="mb-8 lg:mb-12 xl:mb-16">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8 lg:mb-10 text-accent-200 font-semibold leading-tight">
                     Our Beach Bungalows
@@ -31,4 +31,3 @@ export default function Page({ searchParams }) {
         </div>
     );
 }
-

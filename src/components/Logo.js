@@ -5,13 +5,13 @@ import logo from "../../public/logo.png";
 export default function Logo() {
     return (
         <Link href="/" className="flex items-center gap-2 sm:gap-4 z-10">
-            <Image
+            {/* <Image
                 src={logo}
                 height="70"
                 quality={100}
                 width="70"
                 alt="Bungalow Baylogo"
-            />
+            /> */}
             <span className="text-lg sm:text-xl lg:text-2xl font-black text-primary-200">
                 Bungalow Bay
             </span>
