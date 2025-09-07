@@ -18,7 +18,8 @@ function BungalowCard({ bungalow }) {
             <div className="sm:flex-1 relative">
                 <Image
                     src={image}
-                    fill
+                    width={400}
+                    height={300}
                     alt={`Bungalow ${name}`}
                     className="w-full h-48 sm:h-full object-cover border-b sm:border-b-0 sm:border-r border-primary-800"
                 />
