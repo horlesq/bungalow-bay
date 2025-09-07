@@ -35,7 +35,7 @@ function BungalowCard({ bungalow }) {
                 {/* Main Info */}
                 <div className="flex-grow pt-4 sm:pt-5 pb-4 px-4 sm:px-6 lg:px-7">
                     <h3 className="text-accent-500 font-semibold text-xl sm:text-2xl lg:text-2xl mb-3 leading-tight">
-                        Bungalow {name}
+                        Bungalow: {name}
                     </h3>
 
                     <div className="flex gap-2 sm:gap-3 items-center mb-4 sm:mb-6">
