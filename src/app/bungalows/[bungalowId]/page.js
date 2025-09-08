@@ -2,6 +2,7 @@ import Bungalow from "@/components/Bungalow";
 import Spinner from "@/components/Spinner";
 import { getBungalow, getBungalows } from "@/lib/data-service";
 import { Suspense } from "react";
+import GoBackButton from "@/components/GoBackButton";
 
 export async function generateMetadata({ params }) {
     const { name } = await getBungalow(params.bungalowId);
@@ -22,13 +23,15 @@ export default async function Page({ params }) {
     const bungalow = await getBungalow(params.bungalowId);
 
     return (
-        <div className="max-w-6xl mx-auto mt-8">
-            <Bungalow bungalow={bungalow} />
+        <div>
+            <Bungalow bungalow={bungalow} goBackButton={<GoBackButton />} />
 
-            <div>
-                <h2 className="text-5xl font-semibold text-center mb-10 text-accent-400">
-                    Reserve {bungalow.name} today. Pay on arrival.
-                </h2>
+            <div className="max-w-7xl mx-auto pb-10 sm:pb-16 lg:pb-24">
+                <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-6 sm:mb-8 lg:mb-10 text-accent-200 leading-tight">
+                        Reserve {bungalow.name} today. Pay on arrival.
+                    </h2>
+                </div>
 
                 <Suspense fallback={<Spinner />}>
                     {/* <Reservation bungalow={bungalow} /> */}

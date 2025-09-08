@@ -20,6 +20,7 @@ export async function getBungalow(id) {
 
     if (error) {
         console.error(error);
+        notFound();
     }
 
     return data;

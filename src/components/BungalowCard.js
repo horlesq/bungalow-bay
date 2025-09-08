@@ -15,13 +15,13 @@ function BungalowCard({ bungalow }) {
     return (
         <div className="flex flex-col sm:flex-row border-primary-800 border rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] bg-primary-950">
             {/* Image Section */}
-            <div className="sm:flex-1 relative">
+            <div className="sm:flex-1 lg:flex-2 relative aspect-[4/3] w-full">
                 <Image
                     src={image}
-                    width={400}
-                    height={300}
+                    fill
                     alt={`Bungalow ${name}`}
-                    className="w-full h-48 sm:h-full object-cover border-b sm:border-b-0 sm:border-r border-primary-800"
+                    className="object-cover"
+                    sizes="(min-width: 640px) 200px, 100vw"
                 />
                 {discount > 0 && (
                     <div className="absolute top-3 left-3 bg-accent-500 text-primary-900 px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
