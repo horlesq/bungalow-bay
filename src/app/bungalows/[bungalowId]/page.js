@@ -1,8 +1,9 @@
 import Bungalow from "@/components/Bungalow";
 import Spinner from "@/components/Spinner";
+import GoBackButton from "@/components/GoBackButton";
+
 import { getBungalow, getBungalows } from "@/lib/data-service";
 import { Suspense } from "react";
-import GoBackButton from "@/components/GoBackButton";
 
 export async function generateMetadata({ params }) {
     const { name } = await getBungalow(params.bungalowId);
