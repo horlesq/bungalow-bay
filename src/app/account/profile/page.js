@@ -1,7 +1,8 @@
-
-// import SelectCountry from "@/components/SelectCountry";
 // import { auth } from "@/app/lib/auth";
 // import { getGuest } from "@/app/lib/data-service";
+
+import SelectCountry from "@/components/SelectCountry";
+import UpdateProfileForm from "@/components/UpdateProfileForm";
 
 export const metadata = {
     title: "Update profile",
@@ -22,14 +23,14 @@ export default async function Page() {
                 process faster and smoother. See you soon!
             </p>
 
-            {/* <UpdateProfileForm guest={guest}>
+            <UpdateProfileForm >
                 <SelectCountry
                     name="nationality"
                     id="nationality"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
-                    defaultCountry={guest.nationality}
+                    // defaultCountry={guest.nationality}
                 />
-            </UpdateProfileForm> */}
+            </UpdateProfileForm>
         </div>
     );
 }
