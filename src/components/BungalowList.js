@@ -25,15 +25,16 @@ async function BungalowList({ filter }) {
     if (filter === "all") displayedBungalows = bungalows;
     if (filter === "small")
         displayedBungalows = bungalows.filter(
-            (bungalow) => bungalow.maxCapacity <= 3
+            (bungalow) => bungalow.max_capacity <= 3
         );
     if (filter === "medium")
         displayedBungalows = bungalows.filter(
-            (bungalow) => bungalow.maxCapacity >= 4 && bungalow.maxCapacity <= 7
+            (bungalow) =>
+                bungalow.max_capacity >= 4 && bungalow.max_capacity <= 7
         );
     if (filter === "large")
         displayedBungalows = bungalows.filter(
-            (bungalow) => bungalow.maxCapacity >= 8
+            (bungalow) => bungalow.max_capacity >= 8
         );
 
     if (!displayedBungalows.length) {

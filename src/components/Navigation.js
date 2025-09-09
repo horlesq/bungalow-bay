@@ -1,8 +1,10 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export default function Navigation() {
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
@@ -13,7 +15,11 @@ export default function Navigation() {
                     <li>
                         <Link
                             href="/about"
-                            className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                            className={`hover:text-accent-200 font-semibold transition-colors ${
+                                pathname.startsWith("/about")
+                                    ? "text-accent-300"
+                                    : "text-primary-200"
+                            }`}
                         >
                             About
                         </Link>
@@ -21,7 +27,11 @@ export default function Navigation() {
                     <li>
                         <Link
                             href="/bungalows"
-                            className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                            className={`hover:text-accent-200 font-semibold transition-colors ${
+                                pathname.startsWith("/bungalows")
+                                    ? "text-accent-300"
+                                    : "text-primary-200"
+                            }`}
                         >
                             Bungalows
                         </Link>
@@ -29,7 +39,11 @@ export default function Navigation() {
                     <li>
                         <Link
                             href="/account"
-                            className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                            className={`hover:text-accent-200 font-semibold transition-colors ${
+                                pathname.startsWith("/account")
+                                    ? "text-accent-300"
+                                    : "text-primary-200"
+                            }`}
                         >
                             <span className="hidden lg:inline">Guest</span>
                             <span className="lg:hidden">Account</span>
@@ -72,7 +86,11 @@ export default function Navigation() {
                         <li>
                             <Link
                                 href="/about"
-                                className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                                className={`hover:text-accent-200 font-semibold transition-colors ${
+                                    pathname.startsWith("/about")
+                                        ? "text-accent-300"
+                                        : "text-primary-200"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 About
@@ -81,7 +99,11 @@ export default function Navigation() {
                         <li>
                             <Link
                                 href="/bungalows"
-                                className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                                className={`hover:text-accent-200 font-semibold transition-colors ${
+                                    pathname.startsWith("/bungalows")
+                                        ? "text-accent-300"
+                                        : "text-primary-200"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Bungalows
@@ -90,7 +112,11 @@ export default function Navigation() {
                         <li>
                             <Link
                                 href="/account"
-                                className="hover:text-accent-200 text-primary-200 font-semibold transition-colors"
+                                className={`hover:text-accent-200 font-semibold transition-colors ${
+                                    pathname.startsWith("/account")
+                                        ? "text-accent-300"
+                                        : "text-primary-200"
+                                }`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 Guest

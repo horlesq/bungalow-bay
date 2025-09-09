@@ -1,8 +1,9 @@
 import BungalowList from "@/components/BungalowList";
+import Filter from "@/components/Filter";
 import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
 
-export const revalidate = 3600;
+// export const revalidate = 3600;
 
 export const metadata = {
     title: "Bungalows",
@@ -26,6 +27,8 @@ export default function Page({ searchParams }) {
                     in your own beachfront retreat. Welcome to Bungalow Bay.
                 </p>
             </div>
+
+            <Filter />
 
             <Suspense fallback={<Spinner />} key={filter}>
                 <BungalowList filter={filter} />
