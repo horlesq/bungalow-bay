@@ -3,12 +3,15 @@ import Image from "next/image";
 import image1 from "../../../public/about-1.png";
 import image2 from "../../../public/about-2.png";
 import Link from "next/link";
+import { getBungalows } from "@/lib/data-service";
 
 export const metadata = {
-  title: "About Us",
+    title: "About Us",
 };
 
-export default function Page() {
+export default async function Page() {
+    const bungalows = await getBungalows();
+
     return (
         <div className="max-w-7xl mx-auto pb-10 sm:pb-16 lg:pb-24">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 xl:gap-24 text-lg items-center">
@@ -22,24 +25,24 @@ export default function Page() {
                             Where golden sands and turquoise waters meet the
                             comfort of modern living. Nestled along a serene
                             tropical shoreline, Bungalow Bay is your paradise
-                            away from home. But it&apos;s not just about the luxury
-                            bungalows—it&apos;s about the experience of slowing down,
-                            soaking in the sun, and enjoying life&apos;s simple
-                            pleasures.
+                            away from home. But it&apos;s not just about the
+                            luxury bungalows—it&apos;s about the experience of
+                            slowing down, soaking in the sun, and enjoying
+                            life&apos;s simple pleasures.
                         </p>
                         <p>
-                            Our 8 beachfront bungalows provide a cozy retreat,
-                            but the real magic is outside your door. Stroll
-                            along palm-lined beaches, feel the ocean breeze, and
-                            watch the sun set in a sky full of colors, either
-                            from your hammock or while sharing stories around a
-                            fire pit.
+                            Our {bungalows.length} beachfront bungalows provide
+                            a cozy retreat, but the real magic is outside your
+                            door. Stroll along palm-lined beaches, feel the
+                            ocean breeze, and watch the sun set in a sky full of
+                            colors, either from your hammock or while sharing
+                            stories around a fire pit.
                         </p>
                         <p>
                             This is where unforgettable moments are made—by the
                             sea, under the stars, and with the people who matter
-                            most. It&apos;s a place to relax, recharge, and embrace
-                            the beauty of island living.
+                            most. It&apos;s a place to relax, recharge, and
+                            embrace the beauty of island living.
                         </p>
                     </div>
                 </div>
@@ -99,10 +102,11 @@ export default function Page() {
                             Over the years, we&apos;ve preserved the charm of
                             Bungalow Bay, blending the timeless beauty of the
                             ocean with the personal touch only a family business
-                            can offer. Here, you&apos;re not just a guest—you&apos;re part
-                            of our extended family. Join us soon at Bungalow
-                            Bay, where tradition meets tropical paradise, and
-                            every stay feels like coming home.
+                            can offer. Here, you&apos;re not just a
+                            guest—you&apos;re part of our extended family. Join
+                            us soon at Bungalow Bay, where tradition meets
+                            tropical paradise, and every stay feels like coming
+                            home.
                         </p>
 
                         <div className="pt-4">

@@ -1,10 +1,10 @@
-import { unstable_noStore as noStore } from "next/cache";
+// import { connection } from "next/server";
 
 import { getBungalows } from "@/lib/data-service";
 import BungalowCard from "./BungalowCard";
 
 async function BungalowList({ filter }) {
-    noStore();
+    // await connection();
 
     const bungalows = await getBungalows();
 
