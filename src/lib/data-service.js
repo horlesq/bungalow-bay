@@ -99,10 +99,10 @@ export async function getBookings(guestId) {
     const { data, error, count } = await supabase
         .from("bookings")
         .select(
-            "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, guestId, bungalowId, bungalows(name, image)"
+            "id, created_at, start_date, end_date, num_nights, num_guests, total_price, guest_id, bungalow_id, bungalows(name, image)"
         )
-        .eq("guestId", guestId)
-        .order("startDate");
+        .eq("guest_id", guestId)
+        .order("start_date");
 
     if (error) {
         console.error(error);
@@ -124,8 +124,8 @@ export async function getBookedDatesByBungalowId(bungalowId) {
     const { data, error } = await supabase
         .from("bookings")
         .select("*")
-        .eq("bungalowId", bungalowId)
-        .or(`startDate.gte.${today},status.eq.checked-in`);
+        .eq("bungalow_id", bungalowId)
+        .or(`start_date.gte.${today},status.eq.checked-in`);
 
     if (error) {
         console.error(error);

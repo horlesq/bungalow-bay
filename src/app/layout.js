@@ -2,6 +2,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { ReservationProvider } from "@/components/ReservationContext";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -33,7 +34,12 @@ export default function RootLayout({ children }) {
                 <Header />
 
                 <div className="flex-1 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 grid">
-                    <main className="max-w-7xl mx-auto w-full">{children}</main>
+                    <ReservationProvider>
+                        {" "}
+                        <main className="max-w-7xl mx-auto w-full">
+                            {children}
+                        </main>{" "}
+                    </ReservationProvider>
                 </div>
 
                 <Footer />

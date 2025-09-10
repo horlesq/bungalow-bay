@@ -39,9 +39,16 @@ const authConfig = {
     },
 };
 
-export const {
-    auth,
-    signIn,
-    signOut,
-    handlers: { GET, POST },
-} = NextAuth(authConfig);
+// Create the NextAuth handler
+const handler = NextAuth(authConfig);
+
+// Export for API routes
+export { handler as GET, handler as POST };
+
+// Export auth functions (these might be undefined in some versions, so provide fallbacks)
+export const auth = handler.auth || (async () => null);
+export const signIn = handler.signIn || (() => {});
+export const signOut = handler.signOut || (() => {});
+
+// Also export the full handler
+export { handler };
