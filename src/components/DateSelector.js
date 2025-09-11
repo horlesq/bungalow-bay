@@ -1,13 +1,14 @@
 "use client";
 
 import {
+    addYears,
     differenceInDays,
     isPast,
     isSameDay,
     isWithinInterval,
 } from "date-fns";
-import { DayPicker } from "react-day-picker";
-import "react-day-picker/dist/style.css";
+import { DayPicker, getDefaultClassNames } from "react-day-picker";
+import "react-day-picker/style.css"; // Updated import path for v9
 import "../app/globals.css";
 import { useReservation } from "./ReservationContext";
 import { useEffect, useState } from "react";
@@ -48,7 +49,6 @@ function DateSelector({ settings, bungalow, bookedDates }) {
             <div className="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
                 <div className="date-selector-container w-full flex justify-center">
                     <DayPicker
-                        className="rdp-custom"
                         mode="range"
                         onSelect={setRange}
                         selected={displayRange}
@@ -56,8 +56,8 @@ function DateSelector({ settings, bungalow, bookedDates }) {
                         max={maxBookingLength}
                         captionLayout="dropdown"
                         numberOfMonths={1}
-                        fromDate={new Date()}
                         startMonth={new Date()}
+                        endMonth={addYears(new Date(), 1)}
                         disabled={(curDate) =>
                             isPast(curDate) ||
                             bookedDates.some((date) => isSameDay(date, curDate))
@@ -70,6 +70,16 @@ function DateSelector({ settings, bungalow, bookedDates }) {
                                 bookedDates.some((bookedDate) =>
                                     isSameDay(date, bookedDate)
                                 ),
+                        }}
+                        classNames={{
+                            selected: `bg-primary-600 text-primary-50 font-semibold hover:bg-primary-500`,
+                            today: `bg-accent-800 text-primary-100 font-semibold`,
+                            range_start: `bg-primary-600 text-primary-50 font-semibold`,
+                            range_end: `bg-primary-600 text-primary-50 font-semibold`,
+                            range_middle: `bg-primary-800/60 text-primary-100`,
+                            chevron: "fill-current text-primary-600",
+                            dropdown: 'bg-primary-800 text-primary-200 border border border-primary-800 p-1 rounded shadow-sm',
+                            caption_label: 'hidden',
                         }}
                     />
                 </div>
