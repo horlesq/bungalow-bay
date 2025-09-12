@@ -7,7 +7,8 @@ import { getBungalow, getBungalows } from "@/lib/data-service";
 import { Suspense } from "react";
 
 export async function generateMetadata({ params }) {
-    const { name } = await getBungalow(params.bungalowId);
+    const resolvedParams = await params;
+    const { name } = await getBungalow(resolvedParams.bungalowId);
     return { title: `Bungalow: ${name}` };
 }
 
@@ -22,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-    const bungalow = await getBungalow(params.bungalowId);
+    const resolvedParams = await params;
+    const bungalow = await getBungalow(resolvedParams.bungalowId);
 
     return (
         <div>
