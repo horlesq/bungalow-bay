@@ -14,7 +14,7 @@ export default function Bungalow({ bungalow, goBackButton }) {
     } = bungalow;
 
     return (
-        <div className="max-w-7xl mx-auto pb-10 sm:pb-16 lg:pb-24">
+        <div className="max-w-7xl mx-auto pb-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 lg:border lg:border-primary-800 lg:rounded-xl p-0 sm:p-0 lg:p-10 mb-16 sm:mb-20 lg:mb-24">
                 <div className="relative aspect-[4/3] lg:aspect-square rounded-lg overflow-hidden shadow-2xl">
                     <Image

@@ -8,10 +8,19 @@ const initialState = { from: undefined, to: undefined };
 
 function ReservationProvider({ children }) {
     const [range, setRange] = useState(initialState);
+    const [reservedBungalow, setReservedBungalow] = useState(null);
     const resetRange = () => setRange(initialState);
 
     return (
-        <ReservationContext.Provider value={{ range, setRange, resetRange }}>
+        <ReservationContext.Provider
+            value={{
+                range,
+                setRange,
+                resetRange,
+                reservedBungalow,
+                setReservedBungalow,
+            }}
+        >
             {children}
         </ReservationContext.Provider>
     );

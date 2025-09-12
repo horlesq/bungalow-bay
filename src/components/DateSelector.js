@@ -7,12 +7,12 @@ import {
     isSameDay,
     isWithinInterval,
 } from "date-fns";
+import { useEffect } from "react";
 import "react-day-picker/style.css";
 import { DayPicker } from "react-day-picker";
 import { useReservation } from "./ReservationContext";
 
 function isAlreadyBooked(range, datesArr) {
-    // Add null/undefined check for range
     return (
         range &&
         range.from &&
@@ -24,7 +24,21 @@ function isAlreadyBooked(range, datesArr) {
 }
 
 function DateSelector({ settings, bungalow, bookedDates }) {
-    const { range, setRange, resetRange } = useReservation();
+    const {
+        range,
+        setRange,
+        resetRange,
+        reservedBungalow,
+        setReservedBungalow,
+    } = useReservation();
+
+    // Reset dates when switching to a different bungalow
+    useEffect(() => {
+        if (reservedBungalow && reservedBungalow.id !== bungalow.id) {
+            resetRange();
+        }
+        setReservedBungalow(bungalow);
+    }, [bungalow, reservedBungalow, resetRange, setReservedBungalow]);
 
     const displayRange = isAlreadyBooked(range, bookedDates) ? {} : range;
 
@@ -76,7 +90,8 @@ function DateSelector({ settings, bungalow, bookedDates }) {
                             range_end: `bg-primary-600 text-primary-50 font-semibold rounded-r`,
                             range_middle: `bg-primary-800/60 text-primary-100`,
                             chevron: "fill-current text-primary-600",
-                            dropdown: "bg-primary-800 text-primary-200 border border border-primary-800 p-1 rounded shadow-sm",
+                            dropdown:
+                                "bg-primary-800 text-primary-200 border border border-primary-800 p-1 rounded shadow-sm",
                             caption_label: "hidden",
                         }}
                     />
@@ -158,4 +173,5 @@ function DateSelector({ settings, bungalow, bookedDates }) {
         </div>
     );
 }
+
 export default DateSelector;
