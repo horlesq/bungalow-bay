@@ -7,11 +7,9 @@ import {
     isSameDay,
     isWithinInterval,
 } from "date-fns";
-import { DayPicker, getDefaultClassNames } from "react-day-picker";
-import "react-day-picker/style.css"; // Updated import path for v9
-import "../app/globals.css";
+import "react-day-picker/style.css";
+import { DayPicker } from "react-day-picker";
 import { useReservation } from "./ReservationContext";
-import { useEffect, useState } from "react";
 
 function isAlreadyBooked(range, datesArr) {
     // Add null/undefined check for range
@@ -73,13 +71,13 @@ function DateSelector({ settings, bungalow, bookedDates }) {
                         }}
                         classNames={{
                             selected: `bg-primary-600 text-primary-50 font-semibold hover:bg-primary-500`,
-                            today: `bg-accent-800 text-primary-100 font-semibold`,
-                            range_start: `bg-primary-600 text-primary-50 font-semibold`,
-                            range_end: `bg-primary-600 text-primary-50 font-semibold`,
+                            today: `bg-accent-800 text-primary-100 font-semibold rounded`,
+                            range_start: `bg-primary-600 text-primary-50 font-semibold rounded-l`,
+                            range_end: `bg-primary-600 text-primary-50 font-semibold rounded-r`,
                             range_middle: `bg-primary-800/60 text-primary-100`,
                             chevron: "fill-current text-primary-600",
-                            dropdown: 'bg-primary-800 text-primary-200 border border border-primary-800 p-1 rounded shadow-sm',
-                            caption_label: 'hidden',
+                            dropdown: "bg-primary-800 text-primary-200 border border border-primary-800 p-1 rounded shadow-sm",
+                            caption_label: "hidden",
                         }}
                     />
                 </div>

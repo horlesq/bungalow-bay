@@ -23,7 +23,8 @@ async function Reservation({ bungalow }) {
             {session?.user ? (
                 <ReservationForm bungalow={bungalow} user={session.user} />
             ) : (
-                <LoginMessage />
+                <ReservationForm bungalow={bungalow} user={"Adrian"} />
+                // <LoginMessage />
             )}
         </div>
     );
