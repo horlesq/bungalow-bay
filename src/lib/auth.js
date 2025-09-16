@@ -20,7 +20,7 @@ export const authConfig = {
                 if (!existingGuest)
                     await createGuest({
                         email: user.email,
-                        fullName: user.name,
+                        full_name: user.name,
                     });
 
                 return true;
