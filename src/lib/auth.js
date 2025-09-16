@@ -2,11 +2,11 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import { createGuest, getGuest } from "./data-service";
 
-const authConfig = {
+export const authConfig = {
     providers: [
         Google({
-            clientId: process.env.AUTH_GOOGLE_ID,
-            clientSecret: process.env.AUTH_GOOGLE_SECRET,
+            clientId: process.env.AUTH_GOOGLE_CLIENT_ID,
+            clientSecret: process.env.AUTH_GOOGLE_CLIENT_SECRET,
         }),
     ],
     callbacks: {
@@ -34,21 +34,14 @@ const authConfig = {
             return session;
         },
     },
-    pages: {
-        signIn: "/login",
-    },
+    // pages: {
+    //     signIn: "/login",
+    // },
 };
 
-// Create the NextAuth handler
-const handler = NextAuth(authConfig);
+const nextAuth = NextAuth(authConfig);
 
-// Export for API routes
-export { handler as GET, handler as POST };
-
-// Export auth functions (these might be undefined in some versions, so provide fallbacks)
-export const auth = handler.auth || (async () => null);
-export const signIn = handler.signIn || (() => {});
-export const signOut = handler.signOut || (() => {});
-
-// Also export the full handler
-export { handler };
+export const {
+    handlers: { GET, POST },
+    auth,
+} = nextAuth;
