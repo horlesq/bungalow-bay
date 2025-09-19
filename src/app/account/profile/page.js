@@ -1,16 +1,16 @@
-// import { auth } from "@/app/lib/auth";
-// import { getGuest } from "@/app/lib/data-service";
-
 import SelectCountry from "@/components/SelectCountry";
 import UpdateProfileForm from "@/components/UpdateProfileForm";
+
+import { auth } from "@/lib/auth";
+import { getGuest } from "@/lib/data-service";
 
 export const metadata = {
     title: "Update profile",
 };
 
 export default async function Page() {
-    // const session = await auth();
-    // const guest = await getGuest(session.user.email);
+    const session = await auth();
+    const guest = await getGuest(session.user.email);
 
     return (
         <div>
@@ -23,7 +23,7 @@ export default async function Page() {
                 process faster and smoother. See you soon!
             </p>
 
-            <UpdateProfileForm >
+            <UpdateProfileForm guest={guest}>
                 <SelectCountry
                     name="nationality"
                     id="nationality"

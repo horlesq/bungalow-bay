@@ -9,8 +9,6 @@ function UpdateProfileForm({ guest, children }) {
     const [count, setCount] = useState();
 
     const { 
-        fullName = "Test User", 
-        email = "test@example.com", 
         nationality = "Testland", 
         nationalID = "123456789", 
     } = guest || {};
@@ -24,7 +22,7 @@ function UpdateProfileForm({ guest, children }) {
                 <label>Full Name</label>
                 <input
                     disabled
-                    defaultValue={fullName}
+                    defaultValue={guest.full_name}
                     name="fullName"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
                 />
@@ -34,7 +32,7 @@ function UpdateProfileForm({ guest, children }) {
                 <label>Email</label>
                 <input
                     disabled
-                    defaultValue={email}
+                    defaultValue={guest.email}
                     name="email"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
                 />
