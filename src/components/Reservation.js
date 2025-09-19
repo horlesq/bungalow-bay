@@ -13,7 +13,6 @@ async function Reservation({ bungalow }) {
     ]);
 
     const session = await auth();
-    console.log("Session data:", session);
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 border border-primary-800 rounded-xl overflow-hidden shadow-xl bg-primary-950 min-h-[400px] lg:min-h-[500px]">
@@ -25,8 +24,7 @@ async function Reservation({ bungalow }) {
             {session?.user ? (
                 <ReservationForm bungalow={bungalow} user={session.user} />
             ) : (
-                <ReservationForm bungalow={bungalow} user={"Adrian"} />
-                // <LoginMessage />
+                <LoginMessage />
             )}
         </div>
     );

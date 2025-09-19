@@ -8,19 +8,12 @@ function ReservationForm({ bungalow, user }) {
     return (
         <div className="scale-[1.01]">
             {/* Header Section */}
-            <div className="bg-primary-800 text-primary-300 px-4 sm:px-6 lg:px-8 xl:px-16 py-2 sm:py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4">
+            <div className="bg-primary-800 text-primary-300 px-4 sm:px-6 lg:px-8 xl:px-16 py-2 sm:py-3 flex flex-col sm:flex-row sm:items-center gap-2">
                 <p className="text-sm sm:text-base text-center sm:text-left w-full sm:w-auto mt-2 sm:mt-0">
                     Logged in as
                 </p>
 
                 <div className="flex gap-3 sm:gap-4 items-center justify-center sm:justify-start w-full sm:w-auto">
-                    {/* <Image
-                        // Important to display google profile images
-                        referrerPolicy="no-referrer"
-                        className="h-6 sm:h-8 rounded-full"
-                        src={user.image}
-                        alt={user.name}
-                    /> */}
                     <p className="text-sm sm:text-base font-medium text-primary-200 truncate">
                         {user.name}
                     </p>

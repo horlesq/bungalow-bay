@@ -1,9 +1,10 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function Navigation() {
+export default function Navigation(session) {
     const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -37,17 +38,29 @@ export default function Navigation() {
                         </Link>
                     </li>
                     <li>
-                        <Link
-                            href="/account"
-                            className={`hover:text-accent-200 font-semibold transition-colors ${
-                                pathname.startsWith("/account")
-                                    ? "text-accent-300"
-                                    : "text-primary-200"
-                            }`}
-                        >
-                            <span className="hidden lg:inline">Guest</span>
-                            <span className="lg:hidden">Account</span>
-                        </Link>
+                        {session.session?.user ? (
+                            <Link
+                                href="/account"
+                                className={`hover:text-accent-200 font-semibold transition-colors ${
+                                    pathname.startsWith("/account")
+                                        ? "text-accent-300"
+                                        : "text-primary-200"
+                                }`}
+                            >
+                                Guest
+                            </Link>
+                        ) : (
+                            <Link
+                                href="/login"
+                                className={`hover:text-accent-200 font-semibold transition-colors ${
+                                    pathname.startsWith("/login")
+                                        ? "text-accent-300"
+                                        : "text-primary-200"
+                                }`}
+                            >
+                                Login
+                            </Link>
+                        )}
                     </li>
                 </ul>
             </nav>
@@ -110,17 +123,31 @@ export default function Navigation() {
                             </Link>
                         </li>
                         <li>
-                            <Link
-                                href="/account"
-                                className={`hover:text-accent-200 font-semibold transition-colors ${
-                                    pathname.startsWith("/account")
-                                        ? "text-accent-300"
-                                        : "text-primary-200"
-                                }`}
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                Guest
-                            </Link>
+                            {session.session?.user ? (
+                                <Link
+                                    href="/account"
+                                    className={`hover:text-accent-200 font-semibold transition-colors ${
+                                        pathname.startsWith("/account")
+                                            ? "text-accent-300"
+                                            : "text-primary-200"
+                                    }`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Guest
+                                </Link>
+                            ) : (
+                                <Link
+                                    href="/login"
+                                    className={`hover:text-accent-200 font-semibold transition-colors ${
+                                        pathname.startsWith("/login")
+                                            ? "text-accent-300"
+                                            : "text-primary-200"
+                                    }`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    Login
+                                </Link>
+                            )}
                         </li>
                     </ul>
                 </div>
