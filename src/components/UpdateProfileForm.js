@@ -2,27 +2,22 @@
 
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
-import Image from "next/image";
-// import { updateGuest } from "@/lib/data-service";
+import { updateGuest } from "@/lib/actions";
 
 function UpdateProfileForm({ guest, children }) {
     const [count, setCount] = useState();
-
-    const { 
-        nationality = "Testland", 
-        nationalID = "123456789", 
-    } = guest || {};
+    const {full_name, email, nationality, national_id} = guest;
 
     return (
         <form
-            action={console.log("Form submitted")}
+            action={updateGuest}
             className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
         >
             <div className="space-y-2">
                 <label>Full Name</label>
                 <input
                     disabled
-                    defaultValue={guest.full_name}
+                    defaultValue={full_name}
                     name="fullName"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
                 />
@@ -32,7 +27,7 @@ function UpdateProfileForm({ guest, children }) {
                 <label>Email</label>
                 <input
                     disabled
-                    defaultValue={guest.email}
+                    defaultValue={email}
                     name="email"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
                 />
@@ -47,10 +42,10 @@ function UpdateProfileForm({ guest, children }) {
             </div>
 
             <div className="space-y-2">
-                <label htmlFor="nationalID">ID Number</label>
+                <label htmlFor="national_id">ID Number</label>
                 <input
-                    defaultValue={nationalID}
-                    name="nationalID"
+                    defaultValue={national_id}
+                    name="national_id"
                     className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
                 />
             </div>
