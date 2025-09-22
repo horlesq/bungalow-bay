@@ -2,60 +2,87 @@
 
 import { useState } from "react";
 import SubmitButton from "./SubmitButton";
-import { updateGuest } from "@/lib/actions";
+import { updateGuestAction } from "@/lib/actions";
 
 function UpdateProfileForm({ guest, children }) {
     const [count, setCount] = useState();
-    const {full_name, email, nationality, national_id} = guest;
+    const { full_name, email, nationality, national_id } = guest;
 
     return (
-        <form
-            action={updateGuest}
-            className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
-        >
-            <div className="space-y-2">
-                <label>Full Name</label>
-                <input
-                    disabled
-                    defaultValue={full_name}
-                    name="fullName"
-                    className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
-                />
-            </div>
+        <div className="max-w-4xl">
+            <form
+                action={updateGuestAction}
+                className="bg-primary-950/50 backdrop-blur-sm border border-primary-800 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xl"
+            >
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                    {/* Full Name */}
+                    <div className="space-y-3">
+                        <label className="block text-primary-200 font-medium text-sm sm:text-base">
+                            Full Name
+                        </label>
+                        <input
+                            disabled
+                            defaultValue={full_name}
+                            name="fullName"
+                            className="w-full px-4 py-3 bg-primary-900/50 border border-primary-700 rounded-lg text-primary-200 placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 focus:border-accent-400 transition-all duration-200 disabled:cursor-not-allowed disabled:bg-primary-900/30 disabled:text-primary-400 disabled:border-primary-800"
+                        />
+                        <p className="text-xs text-primary-400">
+                            Contact support to change your name
+                        </p>
+                    </div>
 
-            <div className="space-y-2">
-                <label>Email</label>
-                <input
-                    disabled
-                    defaultValue={email}
-                    name="email"
-                    className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
-                />
-            </div>
+                    {/* Email */}
+                    <div className="space-y-3">
+                        <label className="block text-primary-200 font-medium text-sm sm:text-base">
+                            Email Address
+                        </label>
+                        <input
+                            disabled
+                            defaultValue={email}
+                            name="email"
+                            className="w-full px-4 py-3 bg-primary-900/50 border border-primary-700 rounded-lg text-primary-200 placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 focus:border-accent-400 transition-all duration-200 disabled:cursor-not-allowed disabled:bg-primary-900/30 disabled:text-primary-400 disabled:border-primary-800"
+                        />
+                        <p className="text-xs text-primary-400">
+                            Contact support to change your email
+                        </p>
+                    </div>
 
-            <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                    <label htmlFor="nationality">Country of Origin</label>
+                    {/* Country of Origin */}
+                    <div className="space-y-3">
+                        <label
+                            htmlFor="nationality"
+                            className="block text-primary-200 font-medium text-sm sm:text-base"
+                        >
+                            Country of Origin
+                        </label>
+                        {children}
+                    </div>
+
+                    {/* ID Number */}
+                    <div className="space-y-3">
+                        <label
+                            htmlFor="national_id"
+                            className="block text-primary-200 font-medium text-sm sm:text-base"
+                        >
+                            ID Number
+                        </label>
+                        <input
+                            defaultValue={national_id}
+                            name="national_id"
+                            placeholder="Enter your national ID"
+                            className="w-full px-4 py-3 bg-primary-900/50 border border-primary-700 rounded-lg text-primary-200 placeholder-primary-400 focus:outline-none focus:ring-2 focus:ring-accent-400/50 focus:border-accent-400 transition-all duration-200"
+                        />
+                    </div>
                 </div>
 
-                {children}
-            </div>
-
-            <div className="space-y-2">
-                <label htmlFor="national_id">ID Number</label>
-                <input
-                    defaultValue={national_id}
-                    name="national_id"
-                    className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
-                />
-            </div>
-
-            <div className="flex justify-end items-center gap-6">
-                <SubmitButton pendingLabel="Saving...">
-                    Save Changes
-                </SubmitButton>
-            </div>
-        </form>
+                {/* Submit Button */}
+                <div className="flex justify-end mt-8">
+                    <SubmitButton pendingLabel="Saving changes...">
+                        Save Changes
+                    </SubmitButton>
+                </div>
+            </form>
+        </div>
     );
 }
 
