@@ -1,11 +1,11 @@
-"use client";
+// "use client";
 
 import { deleteBooking } from "@/lib/data-service";
 import ReservationCard from "./ReservationCard";
 import { useOptimistic } from "react";
 
-
 function ReservationList({ bookings }) {
+    console.log(bookings);
     // const [optimisticBookings, optimisticDelete] = useOptimistic(
     //     bookings,
     //     (curBookings, bookingId) => {
@@ -18,7 +18,7 @@ function ReservationList({ bookings }) {
     //     await deleteBooking(bookingId);
     // }
 
-    return <></>
+    return null;
     return (
         <ul className="space-y-6">
             {/* {optimisticBookings.map((booking) => (
