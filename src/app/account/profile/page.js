@@ -13,7 +13,7 @@ export default async function Page() {
     const guest = await getGuest(session.user.email);
 
     return (
-        <div className="max-w-6xl mx-auto py-6 sm:py-8 lg:py-12">
+        <div className="max-w-6xl mx-auto py-6">
             {/* Header Section */}
             <div className="mb-8 sm:mb-10 lg:mb-12">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-300 mb-4 sm:mb-6">
@@ -37,8 +37,8 @@ export default async function Page() {
             </UpdateProfileForm>
 
             {/* Info Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 sm:mt-10 lg:mt-12">
-                <div className="bg-primary-950/30 border border-primary-800 rounded-xl p-6 backdrop-blur-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 sm:mt-10 lg:mt-12 max-w-4xl">
+                <div className="sm:bg-primary-950/30 sm:border border-primary-800 rounded-xl sm:p-6 backdrop-blur-sm">
                     <h3 className="text-accent-400 font-semibold text-lg mb-3">
                         Privacy & Security
                     </h3>
@@ -49,7 +49,7 @@ export default async function Page() {
                     </p>
                 </div>
 
-                <div className="bg-primary-950/30 border border-primary-800 rounded-xl p-6 backdrop-blur-sm">
+                <div className="sm:bg-primary-950/30 sm:border border-primary-800 rounded-xl sm:p-6 backdrop-blur-sm">
                     <h3 className="text-accent-400 font-semibold text-lg mb-3">
                         Need Help?
                     </h3>

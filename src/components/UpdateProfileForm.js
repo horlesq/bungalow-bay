@@ -12,7 +12,7 @@ function UpdateProfileForm({ guest, children }) {
         <div className="max-w-4xl">
             <form
                 action={updateGuestAction}
-                className="bg-primary-950/50 backdrop-blur-sm border border-primary-800 rounded-xl p-6 sm:p-8 lg:p-10 shadow-xl"
+                className="sm:bg-primary-950/50 sm:backdrop-blur-sm sm:border border-primary-800 rounded-xl sm:p-8 lg:p-10 shadow-xl"
             >
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                     {/* Full Name */}
