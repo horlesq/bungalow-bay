@@ -11,12 +11,12 @@ export const formatDistanceFromNow = (dateStr) =>
 function ReservationCard({ booking }) {
     const {
         id,
-        guestId,
-        startDate,
-        endDate,
-        numNights,
-        totalPrice,
-        numGuests,
+        guest_id,
+        start_date: startDate,
+        end_date: endDate,
+        num_nights: numNights,
+        total_price: totalPrice,
+        num_guests: numGuests,
         status,
         created_at,
         bungalows: { name, image },
@@ -27,6 +27,7 @@ function ReservationCard({ booking }) {
             <div className="relative h-32 aspect-square">
                 <Image
                     src={image}
+                    fill
                     alt={`Bungalow ${name}`}
                     className="object-cover border-r border-primary-800"
                 />
