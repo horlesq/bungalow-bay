@@ -13,8 +13,8 @@ const poppins = Poppins({
 
 export const metadata = {
     title: {
-        template: "%s / Bungalow Bay",
-        default: "Welcome / Bungalow Bay",
+        template: "%s | Bungalow Bay",
+        default: "Welcome | Bungalow Bay",
     },
     description: "Book your next vacation at Bungalow Bay",
 };

@@ -77,7 +77,7 @@ function SideNavigation() {
                         </li>
                     ))}
 
-                    <li className="mt-auto">
+                    <li >
                         <SignOutButton />
                     </li>
                 </ul>

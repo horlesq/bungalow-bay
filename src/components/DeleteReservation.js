@@ -3,7 +3,6 @@
 import { Trash2 } from "lucide-react";
 import { useTransition } from "react";
 import SpinnerMini from "./SpinnerMini";
-import { deleteBookingAction } from "@/lib/actions";
 
 function DeleteReservation({ bookingId, onDelete }) {
     const [isPending, startTransition] = useTransition();
@@ -14,7 +13,7 @@ function DeleteReservation({ bookingId, onDelete }) {
                 "Are you sure you want to cancel this reservation? This action cannot be undone."
             )
         )
-            startTransition(() => deleteBookingAction(bookingId));
+            startTransition(() => onDelete(bookingId));
     }
 
     return (
