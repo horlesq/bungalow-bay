@@ -1,15 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import SubmitButton from "./SubmitButton";
 import { updateGuestAction } from "@/lib/actions";
 
 function UpdateProfileForm({ guest, children }) {
-    const [count, setCount] = useState();
     const { full_name, email, nationality, national_id } = guest;
 
     return (
-        <div className="max-w-4xl">
+        <div className="max-w-7xl">
             <form
                 action={updateGuestAction}
                 className="sm:bg-primary-950/50 sm:backdrop-blur-sm sm:border border-primary-800 rounded-xl sm:p-8 lg:p-10 shadow-xl"

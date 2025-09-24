@@ -13,11 +13,13 @@ export default async function Page() {
     const bookings = await getBookings(session.user.guestId);
 
     return (
-        <div className="max-w-7xl mx-auto py-6">
-            <div className="mb-8 lg:mb-12 xl:mb-16">
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8 lg:mb-10 text-accent-200 font-semibold leading-tight">
+        <div className="max-w-6xl mx-auto py-6">
+            {/* Header Section */}
+            <div className="mb-8 sm:mb-10 lg:mb-12">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-300 mb-4 sm:mb-6">
                     Your Reservations
                 </h1>
+                <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-accent-500 to-accent-400 rounded-full mb-4 sm:mb-6"></div>
                 <p className="text-primary-200 text-lg sm:text-xl lg:text-2xl leading-relaxed">
                     Manage your upcoming stays and review your booking history.
                     All your tropical getaways in one convenient place.

@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { getBookings } from "./data-service";
 import supabase from "./supabase";
+import { redirect } from "next/navigation";
 
 /** Sign in action */
 export async function signInAction() {
@@ -99,7 +100,7 @@ export async function updateBookingAction(formData) {
 
     // 3) Building update data
     const updateData = {
-        numGuests: Number(formData.get("numGuests")),
+        num_guests: Number(formData.get("numGuests")),
         observations: formData.get("observations").slice(0, 1000),
     };
 
