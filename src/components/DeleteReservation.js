@@ -14,15 +14,14 @@ function DeleteReservation({ bookingId, onDelete }) {
                 "Are you sure you want to cancel this reservation? This action cannot be undone."
             )
         )
-            startTransition(() => onDelete(bookingId));
+            startTransition(() => deleteBookingAction(bookingId));
     }
 
     return (
         <button
-            // onClick={handleDelete}
-            onClick={() => deleteBookingAction(bookingId)}
+            onClick={handleDelete}
             disabled={isPending}
-            className="group/delete flex items-center justify-center gap-3 py-4 px-6 text-primary-300 hover:bg-red-600 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-primary-950"
+            className="group/delete flex items-center justify-center gap-3 py-4 px-6 text-primary-300 hover:bg-red-600 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium focus:outline-none cursor-pointer "
         >
             {!isPending ? (
                 <>
