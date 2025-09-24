@@ -53,7 +53,7 @@ function DateSelector({ settings, bungalow, bookedDates }) {
     // Calculate bungalow price, defaulting to 0 if numNights is not valid
     const bungalowPrice = numNights > 0 ? numNights * (price - discount) : 0;
 
-    const { minBookingLength, maxBookingLength } = settings;
+    const { min_booking_length: minBookingLength, max_booking_length: maxBookingLength } = settings;
 
     return (
         <div className="flex flex-col justify-between bg-primary-900/30 lg:border-r lg:border-primary-800">

@@ -38,8 +38,6 @@ function ReservationList({ bookings }) {
         return aPriority === 2 ? bStart - aStart : aStart - bStart;
     });
 
-    console.log(sortedBookings);
-
     return (
         <ul className="space-y-6">
             {sortedBookings.map((booking) => (
