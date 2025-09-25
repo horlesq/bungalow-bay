@@ -1,8 +1,16 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 # Bungalow Bay
 
 A full-stack web application designed to manage resort operations efficiently. The app provides tools for managing bookings, bungalows, guests, and user accounts. It features a responsive dashboard with real-time data visualization and user-friendly interfaces for day-to-day operations. The project consists of a Next.js-based frontend and a Supabase backend for data storage and authentication.
+
+<img width="1917" height="961" alt="image" src="https://github.com/user-attachments/assets/7199037a-fb74-4894-aa07-0a4e598032d4" />
+<img width="1918" height="950" alt="image" src="https://github.com/user-attachments/assets/90266871-1a36-40ec-8658-752a2c082fb2" />
+<img width="1919" height="960" alt="image" src="https://github.com/user-attachments/assets/f44df350-cb20-4bbe-9ad1-af30bb57bdec" />
+<img width="1920" height="924" alt="image" src="https://github.com/user-attachments/assets/1ed9749b-55d8-4ebf-a7fc-66aef1747914" />
+<img width="1920" height="959" alt="image" src="https://github.com/user-attachments/assets/4a565745-7b47-499b-aef1-7abf28a458f7" />
+
+
+
+
 
 ## Table of Contents
 
@@ -80,6 +88,8 @@ For any inquiries or feedback, feel free to reach out via:
 -   Email: adrian.horlescu@gmail.com
 -   Linkedin [Adrian Horlescu](https://www.linkedin.com/in/adrian-horlescu/)
 -   GitHub: [Horlesq](https://github.com/horlesq)
+-   Website [horly.dev](https://horly.dev)
+
 
 ---
 
