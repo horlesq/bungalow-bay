@@ -1,14 +1,33 @@
 "use client";
 
-import Image from "next/image";
+import { differenceInDays } from "date-fns";
+import { useReservation } from "./ReservationContext";
+import { createBookingAction } from "@/lib/actions";
+import SubmitButton from "./SubmitButton";
 
 function ReservationForm({ bungalow, user }) {
-    const maxCapacity = bungalow?.max_capacity;
+    const { range, resetRange } = useReservation();
+    const { max_capacity: maxCapacity, price, discount, id } = bungalow;
+
+    const start_date = range?.from;
+    const end_date = range?.to;
+    const num_nights = differenceInDays(end_date, start_date);
+    const bungalow_price = num_nights * (price - discount);
+
+    const bookingData = {
+        start_date,
+        end_date,
+        num_nights,
+        bungalow_price,
+        bungalow_id: id,
+    };
+
+    const createBookingWithData = createBookingAction.bind(null, bookingData);
 
     return (
-        <div className="scale-[1.01]">
+        <div className="bg-primary-900 ">
             {/* Header Section */}
-            <div className="bg-primary-800 text-primary-300 px-4 sm:px-6 lg:px-8 xl:px-16 py-2 sm:py-3 flex flex-col sm:flex-row sm:items-center gap-2">
+            <div className="bg-primary-800 text-primary-300 px-4 sm:px-6 lg:px-8 xl:px-16 py-2 sm:py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <p className="text-sm sm:text-base text-center sm:text-left w-full sm:w-auto mt-2 sm:mt-0">
                     Logged in as
                 </p>
@@ -21,18 +40,24 @@ function ReservationForm({ bungalow, user }) {
             </div>
 
             {/* Form Section */}
-            <form className="bg-primary-900 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-16 text-base sm:text-lg flex gap-4 sm:gap-5 lg:gap-6 flex-col">
+            <form
+                action={async (formData) => {
+                    resetRange();
+                    await createBookingWithData(formData);
+                }}
+                className="bg-primary-900 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-16 text-base sm:text-lg flex gap-4 sm:gap-5 lg:gap-6 flex-col"
+            >
                 {/* Guest Selection */}
                 <div className="space-y-2 sm:space-y-3">
                     <label
-                        htmlFor="numGuests"
+                        htmlFor="num_guests"
                         className="block text-primary-200 font-medium text-sm sm:text-base lg:text-lg"
                     >
                         How many guests?
                     </label>
                     <select
-                        name="numGuests"
-                        id="numGuests"
+                        name="num_guests"
+                        id="num_guests"
                         className="px-3 sm:px-4 lg:px-5 py-2 sm:py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm text-sm sm:text-base lg:text-lg font-medium focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 focus:ring-offset-primary-900 transition-all duration-300"
                         required
                     >
@@ -69,16 +94,18 @@ function ReservationForm({ bungalow, user }) {
 
                 {/* Action Section */}
                 <div className="flex flex-col sm:flex-row sm:justify-end sm:items-center gap-4 sm:gap-6 pt-2 sm:pt-4">
-                    <p className="text-primary-300 text-sm sm:text-base text-center sm:text-right order-2 sm:order-1">
-                        Start by selecting dates
-                    </p>
-
-                    <button
-                        type="submit"
-                        className="bg-accent-500 hover:bg-accent-600 disabled:bg-gray-500 disabled:text-gray-300 disabled:cursor-not-allowed px-6 sm:px-8 py-3 sm:py-4 text-primary-800 font-semibold text-sm sm:text-base lg:text-lg rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900 order-1 sm:order-2 w-full sm:w-auto"
-                    >
-                        Reserve now
-                    </button>
+                    {!(start_date && end_date) ? (
+                        <p className="text-primary-300 text-sm sm:text-base text-center sm:text-right order-2 sm:order-1">
+                            Start by selecting dates
+                        </p>
+                    ) : (
+                        <SubmitButton
+                            pendingLabel="Reserving..."
+                            className="bg-accent-500 hover:bg-accent-600 disabled:bg-gray-500 disabled:text-gray-300 disabled:cursor-not-allowed px-6 sm:px-8 py-3 sm:py-4 text-primary-800 font-semibold text-sm sm:text-base lg:text-lg rounded transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:ring-offset-2 focus:ring-offset-primary-900 order-1 sm:order-2 w-full sm:w-auto"
+                        >
+                            Reserve now
+                        </SubmitButton>
+                    )}
                 </div>
             </form>
         </div>

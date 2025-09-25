@@ -53,7 +53,10 @@ function DateSelector({ settings, bungalow, bookedDates }) {
     // Calculate bungalow price, defaulting to 0 if numNights is not valid
     const bungalowPrice = numNights > 0 ? numNights * (price - discount) : 0;
 
-    const { min_booking_length: minBookingLength, max_booking_length: maxBookingLength } = settings;
+    const {
+        min_booking_length: minBookingLength,
+        max_booking_length: maxBookingLength,
+    } = settings;
 
     return (
         <div className="flex flex-col justify-between bg-primary-900/30 lg:border-r lg:border-primary-800">
@@ -96,6 +99,14 @@ function DateSelector({ settings, bungalow, bookedDates }) {
                         }}
                     />
                 </div>
+            </div>
+
+            {/* Booking Requirements Info */}
+            <div className="pb-2 text-center">
+                <p className="text-xs sm:text-sm text-primary-400">
+                    Minimum stay: {minBookingLength + 1}{" "}
+                    {minBookingLength + 1 === 1 ? "night" : "nights"}
+                </p>
             </div>
 
             {/* Pricing Section */}

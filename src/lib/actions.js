@@ -63,26 +63,6 @@ export async function deleteBookingAction(bookingId) {
 }
 
 /** Update booking action */
-export async function deleteBooking(bookingId) {
-    const session = await auth();
-    if (!session) throw new Error("You must be logged in");
-
-    const guestBookings = await getBookings(session.user.guestId);
-    const guestBookingIds = guestBookings.map((booking) => booking.id);
-
-    if (!guestBookingIds.includes(bookingId))
-        throw new Error("You are not allowed to delete this booking");
-
-    const { error } = await supabase
-        .from("bookings")
-        .delete()
-        .eq("id", bookingId);
-
-    if (error) throw new Error("Booking could not be deleted");
-
-    revalidatePath("/account/reservations");
-}
-
 export async function updateBookingAction(formData) {
     const bookingId = Number(formData.get("bookingId"));
 
@@ -120,4 +100,30 @@ export async function updateBookingAction(formData) {
 
     // 7) Redirecting
     redirect("/account/reservations");
+}
+
+/** Create booking action */
+export async function createBookingAction(bookingData, formData) {
+    const session = await auth();
+    if (!session) throw new Error("You must be logged in");
+
+    const newBooking = {
+        ...bookingData,
+        guest_id: session.user.guestId,
+        num_guests: Number(formData.get("num_guests")),
+        observations: formData.get("observations").slice(0, 1000),
+        extras_price: 0,
+        total_price: bookingData.bungalow_price,
+        is_paid: false,
+        has_breakfast: false,
+        status: "unconfirmed",
+    }; 
+
+    const { error } = await supabase.from("bookings").insert([newBooking]);
+
+    if (error) throw new Error("Booking could not be created");
+
+    revalidatePath(`/bungalows/${bookingData.bungalowId}`);
+
+    redirect("/bungalows/thankyou");
 }
