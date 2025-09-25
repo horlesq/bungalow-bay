@@ -66,7 +66,7 @@ export default async function Page() {
                             </div>
                             <div className="flex-1">
                                 <h3 className="text-xl sm:text-2xl font-semibold text-blue-200 mb-2">
-                                    You're currently staying with us!
+                                    You&apos;re currently staying with us!
                                 </h3>
                                 <p className="text-blue-100 mb-4">
                                     Bungalow {currentBooking.bungalows.name} •{" "}
